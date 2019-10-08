@@ -1,4 +1,4 @@
-let bank = class BankAccounts {
+let BankAccounts = class BankAccounts {
     // constructor of the class
     constructor(balance, interest, monthlyFee) {
       this.balance = balance;
@@ -25,4 +25,4 @@ let bank = class BankAccounts {
     }
   };
   
-  module.exports = bank;
+  module.exports = BankAccounts;

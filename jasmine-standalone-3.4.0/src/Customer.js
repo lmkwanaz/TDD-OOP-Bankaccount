@@ -1,12 +1,36 @@
-const bcrypt = require('bcrypt');
+
 let Bank = require('./Bank');
 
 class Customer{
-    constructor(bal, int, mon, bankAcc){
-        this.Bank = new Bank(bal, int, mon, bankAcc);
+    constructor(balance, interests, monthlyfee, bankAcc, password){
+        this.Bank = new Bank(balance, interests, monthlyfee, bankAcc);
+        this.password = password;
     }
 
-    setPassword(){
-        
+    setPassword(secretpassword){
+        this.password = secretpassword;
+    }
+
+    withdraw(bankAccountNumber, amount, secretPassword){
+        if(secretPassword == this.password){
+            this.Bank.withdraw(bankAccountNumber, amount);
+        }else{
+            throw new Error("wrong password")
+        }
+    }
+
+    deposit(bankAccountNumber, amount){
+        bankAccountNumber.Bank.deposit(bankAccountNumber, amount);
+    }
+
+    transfer(fromBankAcountNumber, toBankAccountNumber, amount, secretPassword){
+        if(secretPassword == this.password){
+            this.withdraw(fromBankAcountNumber, amount);
+            this.deposit(toBankAccountNumber, amount);
+        }else{
+            throw new Error("Error, incorrect password");
+        }
     }
 }
+
+let customer = new Customer(1000, 12, 50, 12345678, 1234)
