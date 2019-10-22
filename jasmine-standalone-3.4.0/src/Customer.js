@@ -1,4 +1,3 @@
-
 class Customer{
     constructor(balance, interests, monthlyfee, bankAcc, password){
         this.Bank = new Bank(balance, interests, monthlyfee, bankAcc);
@@ -31,3 +30,4 @@ class Customer{
         }
     }
 }
+

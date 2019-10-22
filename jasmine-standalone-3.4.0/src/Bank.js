@@ -1,5 +1,3 @@
-let BankAccounts = require('./BankAccounts');
-
 class Bank  {
  
   constructor(balance, interest, mon, bankAccountNumber) { 
@@ -49,3 +47,4 @@ class Bank  {
         this.deposit(toBankAccountNumber, amount)
   }
 }
+

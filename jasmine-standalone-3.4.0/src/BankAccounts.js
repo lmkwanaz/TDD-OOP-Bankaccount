@@ -24,3 +24,4 @@ class BankAccounts {
     this.balance -= moneyOut;
   }
 };
+
